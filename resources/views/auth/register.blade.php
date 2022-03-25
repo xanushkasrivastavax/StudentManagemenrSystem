@@ -42,7 +42,11 @@
                             <label for="role" class="col-md-4 control-label">Role</label>
 
                             <div class="col-md-6">
-                                <input id="role" type="role" class="form-control" name="role" value="{{ old('role') }}" required>
+                                <select id="role"  class="form-control" name="role" value="{{ old('role') }}" required>
+                                <option value="Student">Select Options</option>
+                                <option value="Student">Student</option>
+                                <option value="Teacher">Teacher</option>
+
 
                                 @if ($errors->has('role'))
                                     <span class="help-block">
@@ -55,6 +59,7 @@
                             <label for="admin" class="col-md-4 control-label">Admin</label>
 
                             <div class="col-md-6">
+                                Admin
                                 <input id="admin" type="admin" class="form-control" name="admin" value="{{ old('admin') }}" required>
 
                                 @if ($errors->has('admin'))

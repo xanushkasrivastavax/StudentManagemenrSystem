@@ -309,40 +309,30 @@
                     <!-- Page Heading -->
                 
                     <div class="d-sm-flex align-items-center justify-content-between mb-">
-                        <h1 class="h3 mb-0 text-gray-800">User Information List</h1>
+                        <h1 class="h3 mb-0 text-gray-800">{{Auth::user()->name}} 's Profile</h1>
                         
                        
                     </div>
                   
-                    <hr class="mt-2 mb-3"/>
-
+                    <hr class="mt-2 mb-3"/> 
                     <!-- Content Row -->
                     <div class="row">
-                    <table class="table">
-                    <thead>
-                        <tr>
-                           
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Role</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($user as $item)
-                    <tr>
-                            
-                            <td>{{$item->id}}</td>
-                            <td>{{$item->name}}</td>
-                            <td>{{$item->email}}</td>
-                            <td>{{$item->role}}</td>
-                            <td><a href="{{url('/edituser')}}">Edit</td>
-                            <td><a href="/delete/{{$item->id}}">Delete</td>
-                        </tr>
-                    </tbody>
-                    @endforeach
-                    </table>
-                    </div>
+                    <form class="form-horizontal" method="POST" action="{{ url('/edituser') }}">
+                        {{ csrf_field() }}
+                        
+                      <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" >
+                      </div>
+                      <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" id="email" name="email" >
+                      </div>
+                      
+                        
+                    </form>
+
+                        
 
                    
 

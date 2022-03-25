@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class HomeController extends Controller
 {
@@ -38,6 +39,16 @@ class HomeController extends Controller
     public function course()
     {
         return view('admin.course');
+    }
+    public function edituser()
+    {
+        $user=User::get();
+        return view('admin.edituser',compact('user'));
+    }
+    public function delete($id)
+    {
+        $user=User::find($id)->delete();
+        return Redirect()->back();
     }
 
 }

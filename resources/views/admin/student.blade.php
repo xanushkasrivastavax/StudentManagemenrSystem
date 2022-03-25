@@ -336,7 +336,7 @@
                             <td>{{$item->name}}</td>
                             <td>{{$item->email}}</td>
                             <td>{{$item->role}}</td>
-                            <td><a href="{{url('/edituser')}}">Edit</td>
+                            <td><a href="/edituser/{{$item->id}}">Edit</td>
                             <td><a href="/delete/{{$item->id}}">Delete</td>
                         </tr>
                     </tbody>

@@ -40,10 +40,16 @@ class HomeController extends Controller
     {
         return view('admin.course');
     }
-    public function edituser()
+    public function edituser($id)
     {
-        $user=User::get();
-        return view('admin.edituser',compact('user'));
+        $user=User::find($id);
+        $user->name = $request->get('name');
+        $user->email = $request->get('email');
+        $user->role = $request->get('role');
+        $user->save();
+        return Redirect::route('admin.edituser', [$user->id])->with('message', 'User has been updated!');
+
+        // return view('admin.edituser',compact('user'));
     }
     public function delete($id)
     {

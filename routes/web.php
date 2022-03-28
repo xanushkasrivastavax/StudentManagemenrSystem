@@ -11,6 +11,9 @@
 |
 */
 
+// use Illuminate\Routing\Route;
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -21,9 +24,13 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/student', 'HomeController@getStudent');
 Route::get('/landing', 'HomeController@landing');
-Route::get('/course', 'HomeController@course');
-Route::get('/edituser', 'HomeController@edituser');
+Route::any('/course', 'CourseController@handle');
+Route::get('/edituser/{id}', 'HomeController@edituser');
 Route::get('/delete/{id}', 'HomeController@delete');
+Route::get('/cinfo', 'CourseController@getCourse');
+Route::get('/delete/{id}', 'CourseController@delete');
+
+
 
 
 

@@ -292,7 +292,7 @@
                 <div class="panel-heading">Add Course</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="#">
+                    <form class="form-horizontal" method="POST" action="{{url('/course')}}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">

@@ -42,12 +42,7 @@ class HomeController extends Controller
     }
     public function edituser($id)
     {
-        $user=User::find($id);
-        $user->name = $request->get('name');
-        $user->email = $request->get('email');
-        $user->role = $request->get('role');
-        $user->save();
-        return Redirect::route('admin.edituser', [$user->id])->with('message', 'User has been updated!');
+       return view('admin.edituser');
 
         // return view('admin.edituser',compact('user'));
     }

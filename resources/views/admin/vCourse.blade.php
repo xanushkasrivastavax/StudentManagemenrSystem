@@ -333,7 +333,7 @@
                             <td>{{$item->id}}</td>
                             <td>{{$item->cname}}</td>
                             <td>{{$item->duration}}</td>
-                            <td><a href="#">Edit</td>
+                            <td><a href="/editcourse/{{$item->id}}">Edit</td>
                             <td><a href="/delete/{{$item->id}}">Delete</td>
                         </tr>
                     </tbody>

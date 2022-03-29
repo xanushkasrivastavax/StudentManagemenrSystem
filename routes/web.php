@@ -29,6 +29,10 @@ Route::get('/edituser/{id}', 'HomeController@edituser');
 Route::get('/delete/{id}', 'HomeController@delete');
 Route::get('/cinfo', 'CourseController@getCourse');
 Route::get('/delete/{id}', 'CourseController@delete');
+Route::patch('/edituser/{id}', 'HomeController@postedit');
+Route::get('/editcourse/{id}', 'CourseController@editcourse');
+Route::patch('/editcourse/{id}', 'CourseController@postedit');
+
 
 
 

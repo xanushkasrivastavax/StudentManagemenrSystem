@@ -18,6 +18,11 @@ class CreateCoursesTable extends Migration
             $table->string('cname');
             $table->integer('duration');
             $table->timestamps();
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Course;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -52,6 +53,8 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'role' => 'required|string|max:255',
             'admin' => 'required|max:1',
+            'course' => 'required|string|max:255',
+            'duration'=> 'required|integer|max:11',
             'password' => 'required|string|min:6|confirmed',
             
         ]);
@@ -65,12 +68,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user=User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'role' => $data['role'],
             'admin' => $data['admin'],
             'password' => bcrypt($data['password']),
         ]);
+        $course=new Course();
+        $course->cname=$data['course'];
+        $course->duration = $data['duration'];
+        $user->course()->save($course);
+        return $user;
     }
 }

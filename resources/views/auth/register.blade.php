@@ -24,6 +24,32 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group{{ $errors->has('course') ? ' has-error' : '' }}">
+                            <label for="course" class="col-md-4 control-label">Course</label>
+
+                            <div class="col-md-6">
+                                <input id="course" type="text" class="form-control" name="course" value="{{ old('course') }}" required autofocus>
+
+                                @if ($errors->has('course'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('course') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('course') ? ' has-error' : '' }}">
+                            <label for="duration" class="col-md-4 control-label">Duration</label>
+
+                            <div class="col-md-6">
+                                <input id="duration" type="text" class="form-control" name="duration" value="{{ old('duration') }}" required autofocus>
+
+                                @if ($errors->has('duration'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('duration') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>

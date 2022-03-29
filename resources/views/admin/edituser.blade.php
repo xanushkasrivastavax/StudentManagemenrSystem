@@ -8,14 +8,15 @@
                 <div class="panel-heading">Register</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                    <form class="form-horizontal" method="POST" action="/edituser/{{$user->id}}">
                         {{ csrf_field() }}
+                        {{method_field("PATCH")}}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Name</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="name" type="text" class="form-control" name="name" value="{{ $user->name }}" required autofocus>
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -29,7 +30,7 @@
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                                <input id="email" type="email" class="form-control" name="email" value="{{ $user->email }}" required>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -42,7 +43,7 @@
                             <label for="role" class="col-md-4 control-label">Role</label>
 
                             <div class="col-md-6">
-                                <select id="role"  class="form-control" name="role" value="{{ old('role') }}" required>
+                                <select id="role"  class="form-control" name="role" value="{{ $user->role }}" required>
                                 <option value="Student">Select Options</option>
                                 <option value="Student">Student</option>
                                 <option value="Teacher">Teacher</option>
@@ -60,7 +61,7 @@
 
                             <div class="col-md-6">
                                 Admin
-                                <input id="admin" type="admin" class="form-control" name="admin" value="{{ old('admin') }}" required>
+                                <input id="admin" type="admin" class="form-control" name="admin" value="{{ $user->admin }}" required>
 
                                 @if ($errors->has('admin'))
                                     <span class="help-block">

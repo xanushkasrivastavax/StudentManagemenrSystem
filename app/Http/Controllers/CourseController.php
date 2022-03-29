@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Course;
+use Illuminate\Http\Request;
+
 
 class CourseController extends Controller
 {
@@ -11,6 +12,7 @@ class CourseController extends Controller
         if($request->isMethod("POST"))
         {
            $course = new Course;
+           $course->id = $request->id;
            $course->cname = $request->name;
            $course->duration = $request->duration;
            $course->save();
@@ -29,6 +31,30 @@ class CourseController extends Controller
     {
         $course=Course::find($id)->delete();
         return Redirect()->back();
+    }
+    public function editcourse($id)
+    {
+
+        $course=Course::find($id);
+        return view('admin.editCourse',compact('course'));
+
+    }
+    public function postedit($id, Request $request)
+    {
+        $this->validate($request, [
+
+            'cname' => 'required|string|max:255',
+
+            'duration' => 'required|int|max:11',
+
+        ]);
+
+        $course=Course::find($id);
+
+        $course->cname = $request->input('cname');
+        $course->duration = $request->input('duration');
+        
+        $course->save();
     }
 
 }

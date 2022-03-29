@@ -42,9 +42,31 @@ class HomeController extends Controller
     }
     public function edituser($id)
     {
-       return view('admin.edituser');
+       $user=User::find($id);
+        return view('admin.edituser',compact('user'));
+    }
+    public function postedit($id, Request $request)
+    {
+        $this->validate($request, [
 
-        // return view('admin.edituser',compact('user'));
+            'name' => 'required|string|max:255',
+
+            'role' => 'required|string|max:50',
+
+            'email' => 'required|string|email|max:255',
+
+        ]);
+
+        $user = User::find($id);
+
+        $user->name = $request->input('name');
+
+        $user->email = $request->input('email');
+
+
+        $user->role = $request->input('role');
+
+        $user->save();
     }
     public function delete($id)
     {

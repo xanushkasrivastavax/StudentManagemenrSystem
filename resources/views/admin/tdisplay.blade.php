@@ -74,7 +74,7 @@
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                <a class="nav-link collapsed" href="{{url('/display')}}" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Student Information</span>
@@ -321,27 +321,39 @@
                     <thead>
                         <tr>
                            
-                            <th>Id</th>
+                            <th> Id</th>
+                            <th>Student Name</th>
+                            <th>Student Email</th>
+                            <th>Teacher Name</th>
+                            <th>Teacher Email</th>
                             <th>Course Name</th>
-                            <th>Duration (Semester)</th>
+                            <th>Duration/Sem</th>
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($course as $item)
+                    @foreach($student as $item)
                     <tr>
                             
                             <td>{{$item->id}}</td>
-                            <td>{{$item->cname}}</td>
-                            <td>{{$item->duration}}</td>
-                            <td><a href="/editcourse/{{$item->id}}">Edit</td>
-                            <td><a href="/delete/{{$item->id}}">Delete</td>
+                            <td>{{$item->name}}</td>
+                            <td>{{$item->email}}</td>
+                            @foreach ($teacher as $citem )
+                                @if($citem->cname == $item->cname)
+                                <td>{{ $citem->name }}</td>
+                                <td>{{ $citem->email }}</td>
+                                <td>{{$citem->cname }}</td>
+                                <td>{{$citem->duration }} </td>
+                                @endif
+                            @endforeach
+                            <td></td>
                         </tr>
                     </tbody>
                     @endforeach
                     </table>
                     </div>
-
                        
+
+                   
 
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

@@ -74,7 +74,7 @@
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                <a class="nav-link collapsed" href="{{url('/display')}}" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Student Information</span>
@@ -84,7 +84,7 @@
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                <a class="nav-link collapsed" href="{{ url('/tdisplay') }}" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Teacher Information</span>
@@ -130,11 +130,11 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{url('/course')}}" data-toggle="collapse" data-target="#collapsePages"
+                <!-- <a class="nav-link collapsed" href="{{url('/course')}}" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Add Course</span>
-                </a>
+                </a> -->
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
@@ -326,7 +326,11 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Students</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">2</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                   
+                                                {{$array[0]}}
+                                              
+                                            </div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-solid fa-graduation-cap fa-2x text-gray-300"></i>
@@ -344,7 +348,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Teachers</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">2</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$array[1]}}</div>
                                         </div>
                                         <div class="col-auto">
                                         <i class="fas fa-solid fa-school fa-2x text-gray-300"></i>
@@ -366,7 +370,7 @@
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">10</div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">2</div>
                                                 </div>
                                                 <div class="col">
                                                     <div class="progress progress-sm mr-2">

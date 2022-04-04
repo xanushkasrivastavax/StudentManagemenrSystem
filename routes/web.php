@@ -32,6 +32,18 @@ Route::get('/delete/{id}', 'CourseController@delete');
 Route::patch('/edituser/{id}', 'HomeController@postedit');
 Route::get('/editcourse/{id}', 'CourseController@editcourse');
 Route::patch('/editcourse/{id}', 'CourseController@postedit');
+Route::get('/home', 'HomeController@count');
+Route::get('/display', 'HomeController@display');
+Route::get('/display', 'HomeController@student');
+// Route::get('/clear-cache', function() {
+//     Artisan::call('cache:clear');
+//     return "Cache is cleared";
+// });
+Route::get('/tdisplay', 'HomeController@teacher' );
+
+
+
+
 
 
 

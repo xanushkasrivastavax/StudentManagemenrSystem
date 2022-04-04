@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\Course;
 use App\Http\Controllers\Controller;
+use App\Teacher;
+use App\Student;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -75,6 +77,25 @@ class RegisterController extends Controller
             'admin' => $data['admin'],
             'password' => bcrypt($data['password']),
         ]);
+        
+        if($data['role']=="Teacher")
+        {
+        $teacher=Teacher::create([
+            'name'=>$data['name'],
+            'email'=>$data['email'],
+            'cname'=>$data['course'],
+            'duration'=>$data['duration']
+        ]);
+        }
+        if($data['role']=="Student")
+        {
+        $student=Student::create([
+            'name'=>$data['name'],
+            'email'=>$data['email'],
+            'cname'=>$data['course'],
+            'duration'=>$data['duration']
+        ]);
+        }
         $course=new Course();
         $course->cname=$data['course'];
         $course->duration = $data['duration'];

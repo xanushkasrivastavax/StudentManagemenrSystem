@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Course;
 use App\User;
+use App\Student;
+use App\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -72,6 +75,35 @@ class HomeController extends Controller
     {
         $user=User::find($id)->delete();
         return Redirect()->back();
+    }
+    public function count()
+    {
+        $array = [];
+
+        $array[0] = User::where("role", "=", "Student")->count();
+
+        $array[1] = User::where("role", "=", "Teacher")->count();
+        return view('admin.home',compact('array'));
+    }
+    public function display()
+    {
+        $user=User::get();
+        return view('admin.display',compact('user'));
+    }
+    public function student()
+    {
+        $user=User::where("role", "=", "Student")->get();
+        $tuser=User::where("role","=","Teacher")->get();
+        $course=Course::all();
+        
+        return view('admin.display',['user'=>$user,'course'=>$course,'tuser'=>$tuser]);
+    }
+    
+    public function teacher()
+    {
+        $student=Student::all();
+        $teacher=Teacher::all();
+        return view('admin.tdisplay',['student'=>$student,'teacher'=>$teacher]);
     }
 
 }

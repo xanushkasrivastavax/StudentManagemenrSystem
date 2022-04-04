@@ -12,7 +12,6 @@ class CourseController extends Controller
         if($request->isMethod("POST"))
         {
            $course = new Course;
-           $course->id = $request->id;
            $course->cname = $request->name;
            $course->duration = $request->duration;
            $course->save();
@@ -25,6 +24,7 @@ class CourseController extends Controller
     public function getCourse()
     {
         $course=Course::get();
+        // select('cname')->distinct()->
         return view('admin.vCourse', compact('course'));
     }
     public function delete($id)
@@ -55,6 +55,16 @@ class CourseController extends Controller
         $course->duration = $request->input('duration');
         
         $course->save();
+    }
+    public function count()
+    {
+        // $array=[];
+        // $array=Course::all(*)->count;
+        // return view('admin.home', compact('array'));
+    }
+    public function getStudent($id,Request $request)
+    {
+        $course=Course::find($id);
     }
 
 }

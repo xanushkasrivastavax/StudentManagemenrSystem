@@ -5,6 +5,10 @@
 <h3>Student Information </h3>
 <img src="https://user-images.githubusercontent.com/43552277/161716575-bba6e89d-6153-4ebb-b31b-f4c2fd0009f2.png" alt="Student Info">
 
+<h3>Teacher and Student Relationship Information </h3>
+<img src="https://user-images.githubusercontent.com/43552277/161716991-14b67642-5313-43dc-a373-aaa45845b302.png"  alt="Rel info">
+
+
 
 
 

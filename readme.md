@@ -1,6 +1,6 @@
 <h1>Student Management System </h1>
 <h3>Dashboard Page</h3>
-![image](https://user-images.githubusercontent.com/43552277/161715366-945e9c1d-b440-487c-b3ac-4de1ccaac024.png)
+<img src="https://user-images.githubusercontent.com/43552277/161715366-945e9c1d-b440-487c-b3ac-4de1ccaac024.png" alt="Dashboard">
 
 
 

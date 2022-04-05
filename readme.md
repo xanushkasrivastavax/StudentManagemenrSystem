@@ -29,7 +29,12 @@
 <img src="https://user-images.githubusercontent.com/43552277/161717981-1aded7b8-c9a3-4fbe-871b-be13bfb08be9.png"  alt="Landing Page">
 
 
-
+<h1>How to run this project ? </h1>
+<h4> Have PHP >=7.0.3 </h4>
+<h4> Laravel = 5.4 </h4>
+<h4> Have composer installed </h4>
+<h2>Commands to run <h2>
+ 
 
 
 

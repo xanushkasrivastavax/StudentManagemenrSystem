@@ -9,4 +9,8 @@ class Student extends Model
     protected $fillable = [
         'name', 'email','cname','duration',
     ];
+    public static function getmodel()
+    {
+        return Student::all();
+    }
 }

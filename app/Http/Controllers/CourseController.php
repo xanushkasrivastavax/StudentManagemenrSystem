@@ -29,13 +29,13 @@ class CourseController extends Controller
     }
     public function delete($id)
     {
-        $course=Course::find($id)->delete();
+        $course=Course::deletemodel($id);
         return Redirect()->back();
     }
     public function editcourse($id)
     {
 
-        $course=Course::find($id);
+        $course=Course::editmodel($id);
         return view('admin.editCourse',compact('course'));
 
     }
@@ -49,12 +49,13 @@ class CourseController extends Controller
 
         ]);
 
-        $course=Course::find($id);
+        $course=Course::posteditmodel($id);
 
         $course->cname = $request->input('cname');
         $course->duration = $request->input('duration');
         
         $course->save();
+        return Redirect()->back();
     }
     public function count()
     {
@@ -64,7 +65,7 @@ class CourseController extends Controller
     }
     public function getStudent($id,Request $request)
     {
-        $course=Course::find($id);
+        $course=Course::getStudentmodel($id);
     }
 
 }

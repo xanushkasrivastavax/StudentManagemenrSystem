@@ -32,7 +32,7 @@ class HomeController extends Controller
     }
     public function getStudent()
     {
-        $user=User::get();
+        $user=User::getmodel();
         return view('admin.student',compact('user'));
     }
     public function landing()
@@ -45,7 +45,7 @@ class HomeController extends Controller
     }
     public function edituser($id)
     {
-       $user=User::find($id);
+       $user=User::editmodel($id);
         return view('admin.edituser',compact('user'));
     }
     public function postedit($id, Request $request)
@@ -60,7 +60,7 @@ class HomeController extends Controller
 
         ]);
 
-        $user = User::find($id);
+        $user = User::posteditmodel($id);
 
         $user->name = $request->input('name');
 
@@ -73,16 +73,16 @@ class HomeController extends Controller
     }
     public function delete($id)
     {
-        $user=User::find($id)->delete();
+        $user=User::deletemodel($id);
         return Redirect()->back();
     }
     public function count()
     {
         $array = [];
 
-        $array[0] = User::where("role", "=", "Student")->count();
+        $array[0] = User::countstudentmodel();
 
-        $array[1] = User::where("role", "=", "Teacher")->count();
+        $array[1] = User::countTeachermodel();
         return view('admin.home',compact('array'));
     }
     public function display()
@@ -92,17 +92,17 @@ class HomeController extends Controller
     }
     public function student()
     {
-        $user=User::where("role", "=", "Student")->get();
-        $tuser=User::where("role","=","Teacher")->get();
-        $course=Course::all();
+        $user=User::getstudentmodel();
+        $tuser=User::getteachermodel();
+        $course=Course::getallcoursemodel();
         
         return view('admin.display',['user'=>$user,'course'=>$course,'tuser'=>$tuser]);
     }
     
     public function teacher()
     {
-        $student=Student::all();
-        $teacher=Teacher::all();
+        $student=Student::getmodel();
+        $teacher=Teacher::getmodel();
         return view('admin.tdisplay',['student'=>$student,'teacher'=>$teacher]);
     }
 

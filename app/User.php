@@ -38,4 +38,36 @@ class User extends Authenticatable
     {
         return $this->hasMany(Course::class);
     }
+    public static function getmodel()
+    {
+        return User::get();
+    }
+    public static function editmodel($id)
+    {
+        return User::find($id);
+    }
+    public static function posteditmodel($id)
+    {
+        return User::find($id);
+    }
+    public static function deletemodel($id)
+    {
+        return User::find($id)->delete();
+    }
+    public static function getstudentmodel()
+    {
+        return User::where("role", "=", "Student")->get();
+    }
+    public static function getteachermodel()
+    {
+        return User::where("role","=","Teacher")->get();
+    }
+    public static function countstudentmodel()
+    {
+        return User::where("role", "=", "Student")->count();
+    }
+    public static function countTeachermodel()
+    {
+       return User::where("role", "=", "Teacher")->count();
+    }
 }

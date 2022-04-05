@@ -35,6 +35,17 @@
 <h4> Have composer installed </h4>
 <h2>Commands to run <h2>
  
+ <li>
+      git clone "repository link"
+    </li>
+    <li>cd StudentManagemenrSystem</li>
+    <li>composer install</li>
+    <li>cp .env.example .env</li>
+    <li>Create new MySQl database for this application</li>
+    <li>php artisan migrate</li>
+    <li>php artisan storage:link</li>
+    <li>php artisan serve</li>
+    <li>Visit http://localhost:8000/home</li>
 
 
 

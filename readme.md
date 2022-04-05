@@ -2,6 +2,10 @@
 <h3>Dashboard Page</h3>
 <img src="https://user-images.githubusercontent.com/43552277/161715366-945e9c1d-b440-487c-b3ac-4de1ccaac024.png" alt="Dashboard">
 
+<h3>Student Information </h3>
+<img src="https://user-images.githubusercontent.com/43552277/161716575-bba6e89d-6153-4ebb-b31b-f4c2fd0009f2.png" alt="Student Info">
+
+
 
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>

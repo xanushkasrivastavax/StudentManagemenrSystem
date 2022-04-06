@@ -14,4 +14,8 @@ class Teacher extends Model
     {
         return Teacher::all();
     }
+    public static function count()
+    {
+        return Teacher::all()->count();
+    }
 }

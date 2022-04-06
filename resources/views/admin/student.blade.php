@@ -43,7 +43,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ url('/home') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>{{Auth::user()->name}} 's Dashboard</span></a>
             </li>
@@ -82,15 +82,24 @@
                
             </li>
 
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ url('/tdisplay') }}" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Teacher Information</span>
-                </a>
-               
-            </li>
+          <!-- Nav Item - Utilities Collapse Menu -->
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ url('/tdisplay') }}" data-toggle="collapse" data-target="#collapseUtilities"
+                aria-expanded="true" aria-controls="collapseUtilities">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>Teacher and Student Relationship Information</span>
+            </a>
+           
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ url('/teacher') }}" data-toggle="collapse" data-target="#collapseUtilities"
+                aria-expanded="true" aria-controls="collapseUtilities">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>Teacher Information</span>
+            </a>
+           
+        </li>
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="{{url('/cinfo')}}" data-toggle="collapse" data-target="#collapseUtilities"
@@ -336,8 +345,10 @@
                             <td>{{$item->name}}</td>
                             <td>{{$item->email}}</td>
                             <td>{{$item->role}}</td>
+                            @if (Auth::user()->admin == '1')
                             <td><a href="/edituser/{{$item->id}}">Edit</td>
                             <td><a href="/delete/{{$item->id}}">Delete</td>
+                            @endif
                         </tr>
                     </tbody>
                     @endforeach

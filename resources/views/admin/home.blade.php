@@ -44,7 +44,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ url('/home') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>{{Auth::user()->name}} 's Dashboard</span></a>
             </li>
@@ -86,6 +86,15 @@
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="{{ url('/tdisplay') }}" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Teacher and Student Relationship Information</span>
+                </a>
+               
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ url('/teacher') }}" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Teacher Information</span>
@@ -371,7 +380,7 @@
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">2</div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $array[1] }}</div>
                                                 </div>
                                                 <div class="col">
                                                     <div class="progress progress-sm mr-2">
@@ -412,16 +421,26 @@
                    
 
                     <hr class="mt-2 mb-3"/>
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Dropdown button
+                    {{-- <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Filtering Action
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                           <a class="dropdown-item" href="#">Action</a>
                           <a class="dropdown-item" href="#">Another action</a>
                           <a class="dropdown-item" href="#">Something else here</a>
                         </div>
-                      </div>
+                      </div> --}}
+
+                      {{-- <div class="col-md-6">
+                        <select id="role"  class="form-control" name="role" value="{{ old('role') }}" required>
+                        <option value="Student">Select Filtering Action</option>
+                        <option value="User" href="{{url('/student')}}"><a href="{{url('/student')}}">User List</option>
+                        <option value="Student"><a href="{{url('/display')}}">Student List</option>
+                        <option value="Teacher"><a href="{{url('/teacher')}}">Teacher List</option>
+                        <option value="TeacherandStudRel"><a href="{{url('/tdisplay')}}">Teacher and Student Relationship List</option> --}}
+                        
+
 
 
                     

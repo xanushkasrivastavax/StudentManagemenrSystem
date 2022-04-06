@@ -4,6 +4,7 @@ namespace App;
 
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use ReflectionFunctionAbstract;
 
@@ -31,6 +32,10 @@ class Course extends Model
   public static function getallcoursemodel()
   {
     return Course::all();
+  }
+  public static function getdistinctmodel()
+  {
+    return Course::select('cname')->distinct()->get();
   }
   // public static function countmodel()
   // {

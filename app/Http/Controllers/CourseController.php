@@ -23,7 +23,7 @@ class CourseController extends Controller
 
     public function getCourse()
     {
-        $course=Course::get();
+        $course=Course::getdistinctmodel();
         // select('cname')->distinct()->
         return view('admin.vCourse', compact('course'));
     }
@@ -67,5 +67,11 @@ class CourseController extends Controller
     {
         $course=Course::getStudentmodel($id);
     }
+    public function uniquecourse()
+    {
+        $course=Course::get()->distinct();
+        return view('admin.vCourse',compact('course'));
+    }
+
 
 }

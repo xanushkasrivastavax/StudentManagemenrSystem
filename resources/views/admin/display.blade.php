@@ -43,7 +43,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ url('/home') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>{{Auth::user()->name}} 's Dashboard</span></a>
             </li>
@@ -82,15 +82,24 @@
                
             </li>
 
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ url('/tdisplay') }}" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Teacher Information</span>
-                </a>
-               
-            </li>
+       <!-- Nav Item - Utilities Collapse Menu -->
+       <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ url('/tdisplay') }}" data-toggle="collapse" data-target="#collapseUtilities"
+            aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>Teacher and Student Relationship Information</span>
+        </a>
+       
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ url('/teacher') }}" data-toggle="collapse" data-target="#collapseUtilities"
+            aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>Teacher Information</span>
+        </a>
+       
+    </li>
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="{{url('/cinfo')}}" data-toggle="collapse" data-target="#collapseUtilities"
@@ -316,6 +325,7 @@
                   
                     <hr class="mt-2 mb-3"/>
                     <!-- Content Row -->
+                    <h3> Student Information List </h3>
                     <div class="row">
                     <table class="table">
                     <thead>

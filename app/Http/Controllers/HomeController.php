@@ -105,5 +105,11 @@ class HomeController extends Controller
         $teacher=Teacher::getmodel();
         return view('admin.tdisplay',['student'=>$student,'teacher'=>$teacher]);
     }
+    public function teacherdisplay()
+    {
+        $user=User::getteachermodel();
+        $course=Course::getallcoursemodel();
+        return view('admin.teacher',['user'=>$user,'course'=>$course]);
+    }
 
 }

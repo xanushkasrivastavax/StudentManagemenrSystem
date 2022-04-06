@@ -82,24 +82,24 @@
                
             </li>
 
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ url('/tdisplay') }}" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Teacher and Student Relationship Information</span>
-                </a>
-               
-            </li>
+           <!-- Nav Item - Utilities Collapse Menu -->
+           <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ url('/tdisplay') }}" data-toggle="collapse" data-target="#collapseUtilities"
+                aria-expanded="true" aria-controls="collapseUtilities">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>Teacher and Student Relationship Information</span>
+            </a>
+           
+        </li>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ url('/teacher') }}" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Teacher Information</span>
-                </a>
-               
-            </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ url('/teacher') }}" data-toggle="collapse" data-target="#collapseUtilities"
+                aria-expanded="true" aria-controls="collapseUtilities">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>Teacher Information</span>
+            </a>
+           
+        </li>
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="{{url('/cinfo')}}" data-toggle="collapse" data-target="#collapseUtilities"
@@ -325,35 +325,41 @@
                   
                     <hr class="mt-2 mb-3"/>
                     <!-- Content Row -->
+                    <h3> Teacher Information List </h3>
                     <div class="row">
                     <table class="table">
                     <thead>
                         <tr>
                            
-                            <th>Id</th>
+                            <th>Teacher Id</th>
+                            <th>Teacher Name</th>
+                            <th>Teacher Email</th>
                             <th>Course Name</th>
-                            <th>Duration (Semester)</th>
+                            <th>Duration</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {{ $i=1 }}
-                    @foreach($course as $item)
+                    @foreach($user as $item)
                     <tr>
                             
-                            <td>{{$i++}}</td>
-                            <td>{{$item->cname}}</td>
-                            <td>1</td>
-                            @if (Auth::user()->admin == '1')
-                            <td><a href="/editcourse/{{$item->id}}">Edit</td>
-                            <td><a href="/delete/{{$item->id}}">Delete</td>
-                            @endif
+                            <td>{{$item->id}}</td>
+                            <td>{{$item->name}}</td>
+                            <td>{{$item->email}}</td>
+                            @foreach ($course as $citem )
+                                @if($citem->user_id == $item->id)
+                                <td>{{$citem->cname }}</td>
+                                <td>{{$citem->duration }} </td>
+                                @endif
+                            @endforeach
+                            <td></td>
                         </tr>
                     </tbody>
                     @endforeach
                     </table>
                     </div>
-
                        
+
+                   
 
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

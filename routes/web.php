@@ -40,6 +40,8 @@ Route::get('/display', 'HomeController@student');
 //     return "Cache is cleared";
 // });
 Route::get('/tdisplay', 'HomeController@teacher' );
+Route::get('/teacher', 'HomeController@teacherdisplay' );
+
 
 
 

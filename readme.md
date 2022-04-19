@@ -1,3 +1,55 @@
+<h1>Student Management System </h1>
+
+<h3>Register Page </h3>
+<img src="https://user-images.githubusercontent.com/43552277/161718674-1ba5d2f1-9693-4ffb-9c22-02cb7ce47484.png"  alt="Register Page">
+
+<h3>Login Page </h3>
+<img src="https://user-images.githubusercontent.com/43552277/161718189-2a9fc9d3-eb74-488d-b298-7d3ad2e04e61.png"  alt="Login Page">
+
+<h3>Landing Page </h3>
+<img src="https://user-images.githubusercontent.com/43552277/161717981-1aded7b8-c9a3-4fbe-871b-be13bfb08be9.png"  alt="Landing Page">
+
+<h3>Dashboard Page</h3>
+<img src="https://user-images.githubusercontent.com/43552277/161715366-945e9c1d-b440-487c-b3ac-4de1ccaac024.png" alt="Dashboard">
+
+<h3>Student Information </h3>
+<img src="https://user-images.githubusercontent.com/43552277/161716575-bba6e89d-6153-4ebb-b31b-f4c2fd0009f2.png" alt="Student Info">
+
+<h3>Teacher and Student Relationship Information </h3>
+<img src="https://user-images.githubusercontent.com/43552277/161716991-14b67642-5313-43dc-a373-aaa45845b302.png"  alt="Rel info">
+
+
+<h3>User Information </h3>
+<img src="https://user-images.githubusercontent.com/43552277/161717331-3b2c0d9a-f42a-4dcf-aa44-7840706d05eb.png"  alt="User info">
+
+<h3>Edit User Information </h3>
+<img src="https://user-images.githubusercontent.com/43552277/161717599-2c665121-de90-4512-9e1b-002802202836.png"  alt="Edit User info">
+
+<h3>Landing Page </h3>
+<img src="https://user-images.githubusercontent.com/43552277/161717981-1aded7b8-c9a3-4fbe-871b-be13bfb08be9.png"  alt="Landing Page">
+
+
+<h1>How to run this project ? </h1>
+<h4> Have PHP >=7.0.3 </h4>
+<h4> Laravel = 5.4 </h4>
+<h4> Have composer installed </h4>
+<h2>Commands to run <h2>
+ 
+ <li>
+      git clone "repository link"
+    </li>
+    <li>cd StudentManagemenrSystem</li>
+    <li>composer install</li>
+    <li>cp .env.example .env</li>
+    <li>Create new MySQl database for this application</li>
+    <li>php artisan migrate</li>
+    <li>php artisan storage:link</li>
+    <li>php artisan serve</li>
+    <li>Visit http://localhost:8000/home</li>
+
+
+
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">

@@ -70,6 +70,7 @@ class HomeController extends Controller
         $user->role = $request->input('role');
 
         $user->save();
+        return back();
     }
     public function delete($id)
     {

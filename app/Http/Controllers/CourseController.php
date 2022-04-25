@@ -51,7 +51,7 @@ class CourseController extends Controller
 
         ]);
 
-        $course=Course::posteditmodel($id);
+        $course=Course::postedit($id);
 
         $course->cname = $request->input('cname');
         $course->duration = $request->input('duration');

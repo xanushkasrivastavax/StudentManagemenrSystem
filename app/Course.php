@@ -25,7 +25,7 @@ class Course extends Model
   {
     return Course::where('user_id', $id)->delete();
   }
-  public static function getStudentmodel($id)
+  public static function getStudent($id)
   {
     $check=Course::find($id);
     if(empty($check)){
@@ -35,7 +35,7 @@ class Course extends Model
       return $check;
     }
   }
-  public static function posteditmodel($id)
+  public static function postedit($id)
   {
     $real= Course::find($id);
     if(empty($real))
@@ -43,7 +43,7 @@ class Course extends Model
     else
     return $real;
   }
-  public static function getallcoursemodel()
+  public static function getallcourse()
   {
     return Course::all();
   }
@@ -56,3 +56,4 @@ class Course extends Model
   //   return Coure::all()->distinct
   // }
 }
+git 

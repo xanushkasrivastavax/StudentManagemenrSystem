@@ -15,27 +15,41 @@ class Course extends Model
   }
   public static function editmodel($id)
   {
-     return Course::find($id);
+    $valid =Course::find($id);
+    if(empty($valid))
+    return "NULL";
+    else
+    return $valid;
   }
-  public static function deletemodel($id)
+  public static function findanddelete($id)
   {
-    return Course::find($id)->delete();
+    return Course::where('user_id', $id)->delete();
   }
   public static function getStudentmodel($id)
   {
-    return Course::find($id);
+    $check=Course::find($id);
+    if(empty($check)){
+      return "NULL";
+    }
+    else{
+      return $check;
+    }
   }
   public static function posteditmodel($id)
   {
-    return Course::find($id);
+    $real= Course::find($id);
+    if(empty($real))
+    return "NULL";
+    else
+    return $real;
   }
   public static function getallcoursemodel()
   {
     return Course::all();
   }
-  public static function getdistinctmodel()
+  public static function getdistinct()
   {
-    return Course::select('cname')->distinct()->get();
+    return Course::distinct('cname')->get();
   }
   // public static function countmodel()
   // {

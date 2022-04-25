@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Course;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Redirect;
 
 class CourseController extends Controller
 {
@@ -23,14 +23,16 @@ class CourseController extends Controller
 
     public function getCourse()
     {
-        $course=Course::getdistinctmodel();
+        $course=Course::getdistinct();
         // select('cname')->distinct()->
         return view('admin.vCourse', compact('course'));
     }
     public function delete($id)
     {
-        $course=Course::deletemodel($id);
-        return Redirect()->back();
+        
+        $course=Course::findanddelete($id);
+        // return redirect()->back();
+        
     }
     public function editcourse($id)
     {
@@ -55,7 +57,7 @@ class CourseController extends Controller
         $course->duration = $request->input('duration');
         
         $course->save();
-        return Redirect()->back();
+        return Redirect('/cinfo');
     }
     public function count()
     {
@@ -65,7 +67,7 @@ class CourseController extends Controller
     }
     public function getStudent($id,Request $request)
     {
-        $course=Course::getStudentmodel($id);
+        $course=Course::getStudent($id);
     }
     public function uniquecourse()
     {

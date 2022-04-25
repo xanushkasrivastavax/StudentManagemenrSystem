@@ -16,10 +16,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
@@ -74,15 +74,16 @@ class HomeController extends Controller
     public function delete($id)
     {
         $user=User::deletemodel($id);
-        return Redirect()->back();
+        $course=Course::deletemodel($id);
+        return redirect()->back();
     }
     public function count()
     {
         $array = [];
 
-        $array[0] = User::countstudentmodel();
+        $array[0] = User::countstudent();
 
-        $array[1] = User::countTeachermodel();
+        $array[1] = User::countTeacher();
         return view('admin.home',compact('array'));
     }
     public function display()
@@ -90,11 +91,16 @@ class HomeController extends Controller
         $user=User::get();
         return view('admin.display',compact('user'));
     }
+    public function apif(Request $request)
+    {
+        $user=User::getstudent();
+        return response()->json($user,200);
+    }
     public function student()
     {
-        $user=User::getstudentmodel();
-        $tuser=User::getteachermodel();
-        $course=Course::getallcoursemodel();
+        $user=User::getstudent();
+        $tuser=User::getteacher();
+        $course=Course::getallcourse();
         
         return view('admin.display',['user'=>$user,'course'=>$course,'tuser'=>$tuser]);
     }
@@ -107,8 +113,8 @@ class HomeController extends Controller
     }
     public function teacherdisplay()
     {
-        $user=User::getteachermodel();
-        $course=Course::getallcoursemodel();
+        $user=User::getteacher();
+        $course=Course::getallcourse();
         return view('admin.teacher',['user'=>$user,'course'=>$course]);
     }
 

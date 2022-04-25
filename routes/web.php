@@ -20,27 +20,35 @@ Route::get('/', function () {
 
 
 Auth::routes();
+Route::middleware('checkauth')->group(function(){
+    Route::get('/cinfo', 'CourseController@getCourse');
+    Route::get('/edituser/{id}', 'HomeController@edituser');
+    Route::get('/delete/{id}', 'HomeController@delete');
+    Route::get('/student', 'HomeController@getStudent');
+    Route::get('/landing', 'HomeController@landing');
+    Route::any('/course', 'CourseController@handle');
+    Route::patch('/edituser/{id}', 'HomeController@postedit');
+    Route::get('/editcourse/{id}', 'CourseController@editcourse');
+    Route::patch('/editcourse/{id}', 'CourseController@postedit');
+    Route::get('/display', 'HomeController@display');
+    Route::get('/display', 'HomeController@student');
+    Route::get('/tdisplay', 'HomeController@teacher' );
+    Route::get('/teacher', 'HomeController@teacherdisplay' );
 
+});
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/student', 'HomeController@getStudent');
-Route::get('/landing', 'HomeController@landing');
-Route::any('/course', 'CourseController@handle');
-Route::get('/edituser/{id}', 'HomeController@edituser');
-Route::get('/delete/{id}', 'HomeController@delete');
-Route::get('/cinfo', 'CourseController@getCourse');
-Route::get('/delete/{id}', 'CourseController@delete');
-Route::patch('/edituser/{id}', 'HomeController@postedit');
-Route::get('/editcourse/{id}', 'CourseController@editcourse');
-Route::patch('/editcourse/{id}', 'CourseController@postedit');
+
+
+
+// Route::get('/delete/{id}', 'CourseController@delete');
+// Route::get('api/filterapi', 'HomeController@apif');
 Route::get('/home', 'HomeController@count');
-Route::get('/display', 'HomeController@display');
-Route::get('/display', 'HomeController@student');
+
 // Route::get('/clear-cache', function() {
 //     Artisan::call('cache:clear');
 //     return "Cache is cleared";
 // });
-Route::get('/tdisplay', 'HomeController@teacher' );
-Route::get('/teacher', 'HomeController@teacherdisplay' );
+
 
 
 

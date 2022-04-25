@@ -52,21 +52,22 @@ class User extends Authenticatable
     }
     public static function deletemodel($id)
     {
+       
         return User::find($id)->delete();
     }
-    public static function getstudentmodel()
+    public static function getstudent()
     {
         return User::where("role", "=", "Student")->get();
     }
-    public static function getteachermodel()
+    public static function getteacher()
     {
         return User::where("role","=","Teacher")->get();
     }
-    public static function countstudentmodel()
+    public static function countstudent()
     {
         return User::where("role", "=", "Student")->count();
     }
-    public static function countTeachermodel()
+    public static function countTeacher()
     {
        return User::where("role", "=", "Teacher")->count();
     }

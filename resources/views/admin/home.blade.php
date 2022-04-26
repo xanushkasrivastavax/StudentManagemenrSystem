@@ -10,8 +10,11 @@
     <meta name="author" content="">
 
     <title>Admin Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
     <!-- Custom fonts for this template-->
     <link href="admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
@@ -46,7 +49,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="{{ url('/home') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>{{Auth::user()->name}} 's Dashboard</span></a>
+                    <span>{{ Auth::user()->name }} 's Dashboard</span></a>
             </li>
 
             <!-- Divider -->
@@ -59,8 +62,8 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{url('/student')}}" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="{{ url('/student') }}" data-toggle="collapse"
+                    data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>User Information</span>
                 </a>
@@ -73,42 +76,42 @@
                 </div>
             </li> -->
 
-            <!-- Nav Item - Utilities Collapse Menu -->
+                <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{url('/display')}}" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link collapsed" href="{{ url('/display') }}" data-toggle="collapse"
+                    data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Student Information</span>
                 </a>
-               
+
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ url('/tdisplay') }}" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link collapsed" href="{{ url('/tdisplay') }}" data-toggle="collapse"
+                    data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Teacher and Student Relationship Information</span>
                 </a>
-               
+
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ url('/teacher') }}" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link collapsed" href="{{ url('/teacher') }}" data-toggle="collapse"
+                    data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Teacher Information</span>
                 </a>
-               
+
             </li>
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{url('/cinfo')}}" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link collapsed" href="{{ url('/cinfo') }}" data-toggle="collapse"
+                    data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Course Information</span>
                 </a>
-               
+
             </li>
 
             <!-- Divider -->
@@ -126,7 +129,8 @@
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Student Profile</span>
                 </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
+                    data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
                         <a class="collapse-item" href="login.html">Login</a>
@@ -140,12 +144,13 @@
                 </div>
             </li>
             <li class="nav-item">
-                <!-- <a class="nav-link collapsed" href="{{url('/course')}}" data-toggle="collapse" data-target="#collapsePages"
+                <!-- <a class="nav-link collapsed" href="{{ url('/course') }}" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Add Course</span>
                 </a> -->
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
+                    data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
                         <a class="collapse-item" href="login.html">Login</a>
@@ -158,11 +163,11 @@
                     </div>
                 </div>
             </li>
-      
 
-      
 
-            
+
+
+
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -172,7 +177,7 @@
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
-            
+
 
         </ul>
         <!-- End of Sidebar -->
@@ -260,15 +265,15 @@
                                         </div>
                                     </div>
                                 </a>
-                                
+
                         </li>
                         <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="{{url('/landing')}}" id="messagesDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                               Landing Page
-                            
+                            <a class="nav-link dropdown-toggle" href="{{ url('/landing') }}" id="messagesDropdown"
+                                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Landing Page
+
                             </a>
-                        <!-- Nav Item - Messages -->
+                            <!-- Nav Item - Messages -->
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -276,13 +281,14 @@
                                 <!-- Counter - Messages -->
                                 <span class="badge badge-danger badge-counter">7</span>
                             </a>
-                           
 
-                        <!-- Nav Item - User Information -->
+
+                            <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth::user()->name}}</span>
+                                <span
+                                    class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
                                 <i class="fas fa-solid fa-school fa-2x text-gray-300"></i>
                             </a>
                             <!-- Dropdown - User Information -->
@@ -317,13 +323,13 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                
+
                     <div class="d-sm-flex align-items-center justify-content-between mb-">
-                        <h1 class="h3 mb-0 text-gray-800">{{Auth::user()->name}} 's Dashboard</h1>
-                        
-                       
+                        <h1 class="h3 mb-0 text-gray-800">{{ Auth::user()->name }} 's Dashboard</h1>
+
+
                     </div>
-                  
+
 
                     <!-- Content Row -->
                     <div class="row">
@@ -337,9 +343,9 @@
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Students</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                   
-                                                {{$array[0]}}
-                                              
+
+                                                {{ $array[0] }}
+
                                             </div>
                                         </div>
                                         <div class="col-auto">
@@ -358,11 +364,12 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Teachers</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$array[1]}}</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $array[1] }}
+                                            </div>
                                         </div>
                                         <div class="col-auto">
-                                        <i class="fas fa-solid fa-school fa-2x text-gray-300"></i>
-                                        <i class="fa-solid fa-chalkboard-user"></i>
+                                            <i class="fas fa-solid fa-school fa-2x text-gray-300"></i>
+                                            <i class="fa-solid fa-chalkboard-user"></i>
                                             <!-- <i class="fas fa-solid fa-chalkboard-user fa-2x text-gray-300"></i> -->
                                         </div>
                                     </div>
@@ -380,7 +387,8 @@
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $array[1] }}</div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                                                        {{ $array[1] }}</div>
                                                 </div>
                                                 <div class="col">
                                                     <div class="progress progress-sm mr-2">
@@ -406,7 +414,8 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                             <a href="{{ url('api/filterapi')}}">   Filter API</div>
+                                                <a href="{{ url('api/filterapi') }}"> Filter API
+                                            </div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
                                         </div>
                                         <div class="col-auto">
@@ -418,9 +427,9 @@
                         </div>
                     </div>
 
-                   
 
-                    <hr class="mt-2 mb-3"/>
+
+                    <hr class="mt-2 mb-3" />
                     {{-- <div class="dropdown">
                         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Filtering Action
@@ -432,55 +441,58 @@
                         </div>
                       </div> --}}
 
-                      {{-- <div class="col-md-6">
+                    {{-- <div class="col-md-6">
                         <select id="role"  class="form-control" name="role" value="{{ old('role') }}" required>
                         <option value="Student">Select Filtering Action</option>
                         <option value="User" href="{{url('/student')}}"><a href="{{url('/student')}}">User List</option>
                         <option value="Student"><a href="{{url('/display')}}">Student List</option>
                         <option value="Teacher"><a href="{{url('/teacher')}}">Teacher List</option>
                         <option value="TeacherandStudRel"><a href="{{url('/tdisplay')}}">Teacher and Student Relationship List</option> --}}
-                        
 
 
 
-                    
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+                    <!-- Logout Modal-->
+                    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                                    <button class="close" type="button" data-dismiss="modal"
+                                        aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">Select "Logout" below if you are ready to end your current
+                                    session.</div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-secondary" type="button"
+                                        data-dismiss="modal">Cancel</button>
+                                    <a class="btn btn-primary" href="login.html">Logout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+                    <!-- Bootstrap core JavaScript-->
+                    <script src="vendor/jquery/jquery.min.js"></script>
+                    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+                    <!-- Core plugin JavaScript-->
+                    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+                    <!-- Custom scripts for all pages-->
+                    <script src="js/sb-admin-2.min.js"></script>
+
+                    <!-- Page level plugins -->
+                    <script src="vendor/chart.js/Chart.min.js"></script>
+
+                    <!-- Page level custom scripts -->
+                    <script src="js/demo/chart-area-demo.js"></script>
+                    <script src="js/demo/chart-pie-demo.js"></script>
 
 </body>
 

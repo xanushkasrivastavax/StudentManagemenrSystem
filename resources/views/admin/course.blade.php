@@ -43,9 +43,9 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="{{url('/home')}}">
+                <a class="nav-link" href="{{ url('/home') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>{{Auth::user()->name}} 's Dashboard</span></a>
+                    <span>{{ Auth::user()->name }} 's Dashboard</span></a>
             </li>
 
             <!-- Divider -->
@@ -58,8 +58,8 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{url('/student')}}" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="{{ url('/student') }}" data-toggle="collapse"
+                    data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>User Information</span>
                 </a>
@@ -72,14 +72,14 @@
                 </div>
             </li> -->
 
-            <!-- Nav Item - Utilities Collapse Menu -->
+                <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Student Information</span>
                 </a>
-               
+
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
@@ -89,7 +89,7 @@
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Teacher Information</span>
                 </a>
-               
+
             </li>
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
@@ -98,7 +98,7 @@
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Course Information</span>
                 </a>
-               
+
             </li>
 
             <!-- Divider -->
@@ -116,7 +116,8 @@
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Student Profile</span>
                 </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
+                    data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
                         <a class="collapse-item" href="login.html">Login</a>
@@ -130,7 +131,7 @@
                 </div>
             </li>
 
-            
+
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -140,7 +141,7 @@
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
-            
+
 
         </ul>
         <!-- End of Sidebar -->
@@ -228,7 +229,7 @@
                                         </div>
                                     </div>
                                 </a>
-                                
+
                         </li>
 
                         <!-- Nav Item - Messages -->
@@ -239,13 +240,14 @@
                                 <!-- Counter - Messages -->
                                 <span class="badge badge-danger badge-counter">7</span>
                             </a>
-                           
 
-                        <!-- Nav Item - User Information -->
+
+                            <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth::user()->name}}</span>
+                                <span
+                                    class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
                                 <i class="fas fa-solid fa-school fa-2x text-gray-300"></i>
                             </a>
                             <!-- Dropdown - User Information -->
@@ -282,105 +284,110 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Add Course</h1>
-                       
+
                     </div>
-                    <hr class="mt-2 mb-3"/>
+                    <hr class="mt-2 mb-3" />
                     <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Add Course</div>
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Add Course</div>
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{url('/course')}}">
-                        {{ csrf_field() }}
+                                    <div class="panel-body">
+                                        <form class="form-horizontal" method="POST" action="{{ url('/course') }}">
+                                            {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Course Name</label>
+                                            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                                                <label for="name" class="col-md-4 control-label">Course Name</label>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                                <div class="col-md-6">
+                                                    <input id="name" type="text" class="form-control" name="name"
+                                                        value="{{ old('name') }}" required autofocus>
 
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
+                                                    @if ($errors->has('name'))
+                                                        <span class="help-block">
+                                                            <strong>{{ $errors->first('name') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                class="form-group{{ $errors->has('duration') ? ' has-error' : '' }}">
+                                                <label for="duration" class="col-md-4 control-label">Course
+                                                    Duration</label>
+
+                                                <div class="col-md-6">
+                                                    <input id="email" type="duration" class="form-control"
+                                                        name="duration" value="{{ old('duration') }}" required>
+
+                                                    @if ($errors->has('duration'))
+                                                        <span class="help-block">
+                                                            <strong>{{ $errors->first('duration') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+
+
+
+
+                                            <div class="form-group">
+                                                <div class="col-md-6 col-md-offset-4">
+                                                    <button type="submit" class="btn btn-primary">
+                                                        Add Course
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="form-group{{ $errors->has('duration') ? ' has-error' : '' }}">
-                            <label for="duration" class="col-md-4 control-label">Course Duration</label>
 
-                            <div class="col-md-6">
-                                <input id="email" type="duration" class="form-control" name="duration" value="{{ old('duration') }}" required>
+                </div>
 
-                                @if ($errors->has('duration'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('duration') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-                       
 
-                       
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Add Course
+                <!-- Logout Modal-->
+                <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
                                 </button>
                             </div>
+                            <div class="modal-body">Select "Logout" below if you are ready to end your current
+                                session.</div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                <a class="btn btn-primary" href="login.html">Logout</a>
+                            </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
 
-                   
-     </div>
+                <!-- Bootstrap core JavaScript-->
+                <script src="vendor/jquery/jquery.min.js"></script>
+                <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-                   
+                <!-- Core plugin JavaScript-->
+                <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
+                <!-- Custom scripts for all pages-->
+                <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                <!-- Page level plugins -->
+                <script src="vendor/chart.js/Chart.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+                <!-- Page level custom scripts -->
+                <script src="js/demo/chart-area-demo.js"></script>
+                <script src="js/demo/chart-pie-demo.js"></script>
 
 </body>
 

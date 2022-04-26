@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 
 Auth::routes();
-Route::middleware('checkauth')->group(function(){
+Route::middleware('checkauth')->group(function () {
     Route::get('/cinfo', 'CourseController@getCourse');
     Route::get('/edituser/{id}', 'HomeController@edituser');
     Route::get('/delete/{id}', 'HomeController@delete');
@@ -32,9 +32,8 @@ Route::middleware('checkauth')->group(function(){
     Route::patch('/editcourse/{id}', 'CourseController@postedit');
     Route::get('/display', 'HomeController@display');
     Route::get('/display', 'HomeController@student');
-    Route::get('/tdisplay', 'HomeController@teacher' );
-    Route::get('/teacher', 'HomeController@teacherdisplay' );
-
+    Route::get('/tdisplay', 'HomeController@teacher');
+    Route::get('/teacher', 'HomeController@teacherdisplay');
 });
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -48,15 +47,3 @@ Route::get('/home', 'HomeController@count');
 //     Artisan::call('cache:clear');
 //     return "Cache is cleared";
 // });
-
-
-
-
-
-
-
-
-
-
-
-

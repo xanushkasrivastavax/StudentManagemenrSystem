@@ -93,7 +93,13 @@ class HomeController extends Controller
     }
     public function apif(Request $request)
     {
-        $user=User::offset(($request->page - 1) * 10)->limit(10)->getstudent();
+        $page=1;
+        if($request->page){
+            $page=$request->page;
+        }
+        $user=User::getstudentpaginated($page);
+        // return view('admin.filterapi',compact('user'));
+
         return response()->json($user,200);
     }
     public function student()

@@ -56,4 +56,3 @@ class Course extends Model
   //   return Coure::all()->distinct
   // }
 }
-git 

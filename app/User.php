@@ -59,6 +59,10 @@ class User extends Authenticatable
     {
         return User::where("role", "=", "Student")->get();
     }
+    public static function getstudentpaginated($page)
+    {
+        return User::where("role", "=", "Student")->offset(($page - 1) * 10)->limit(10)->get();
+    }
     public static function getteacher()
     {
         return User::where("role","=","Teacher")->get();

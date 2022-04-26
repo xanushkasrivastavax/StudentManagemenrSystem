@@ -93,7 +93,7 @@ class HomeController extends Controller
     }
     public function apif(Request $request)
     {
-        $user=User::getstudent();
+        $user=User::offset(($request->page - 1) * 10)->limit(10)->getstudent();
         return response()->json($user,200);
     }
     public function student()

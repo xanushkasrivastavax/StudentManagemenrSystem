@@ -38,10 +38,8 @@ class DemoCron extends Command
     public function handle()
     {
         //
-        Log::info("Cron is working fine!");
+        echo "My cron is running..";
 
-
-        $this->info('Demo:Cron Cummand Run successfully!');
 
     }
 }

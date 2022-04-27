@@ -51,6 +51,10 @@ class Course extends Model
   {
     return Course::distinct('cname')->get();
   }
+  public static function deletemodel($id)
+  {  
+      return Course::find($id)->delete();
+  }
   // public static function countmodel()
   // {
   //   return Coure::all()->distinct

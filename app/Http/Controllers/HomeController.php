@@ -58,6 +58,10 @@ class HomeController extends Controller
 
             'email' => 'required|string|email|max:255',
 
+            'admin' => 'boolean',
+            
+            
+
         ]);
 
         $user = User::posteditmodel($id);
@@ -70,9 +74,18 @@ class HomeController extends Controller
         $user->role = $request->input('role');
 
         $user->save();
+        return redirect('/student');
     }
     public function delete($id)
     {
+        $user=User::editmodel($id);
+        if($user->role == "Student"){
+            $student=Student::deletemodel($user->email);
+        }
+        else{
+            $teacher=Teacher::deletemodel($user->email);
+        }
+        
         $user=User::deletemodel($id);
         $course=Course::deletemodel($id);
         return redirect()->back();

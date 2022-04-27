@@ -51,8 +51,9 @@ class User extends Authenticatable
         return User::find($id);
     }
     public static function deletemodel($id)
-    {
+    {  
        
+
         return User::find($id)->delete();
     }
     public static function getstudent()

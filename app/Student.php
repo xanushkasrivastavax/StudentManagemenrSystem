@@ -13,4 +13,8 @@ class Student extends Model
     {
         return Student::all();
     }
+    public static function deletemodel($email)
+    {
+    return Student::where('email', $email)->delete();
+    }
 }

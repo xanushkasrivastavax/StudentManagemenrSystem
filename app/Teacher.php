@@ -18,4 +18,8 @@ class Teacher extends Model
     {
         return Teacher::all()->count();
     }
+    public static function deletemodel($email)
+    {
+        return Teacher::where('email', $email)->delete();
+    }
 }

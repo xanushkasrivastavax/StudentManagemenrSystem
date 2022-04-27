@@ -13,6 +13,7 @@
 
 // use Illuminate\Routing\Route;
 
+use App\Http\Controllers\Auth\RegisterController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,6 +21,9 @@ Route::get('/', function () {
 
 
 Auth::routes();
+Route::middleware('isadmin')->group(function () {
+    Route::get('/user','HomeController@addUser');
+});
 Route::middleware('checkauth')->group(function () {
     Route::get('/cinfo', 'CourseController@getCourse');
     Route::get('/edituser/{id}', 'HomeController@edituser');

@@ -136,5 +136,9 @@ class HomeController extends Controller
         $course=Course::getallcourse();
         return view('admin.teacher',['user'=>$user,'course'=>$course]);
     }
+    public function addUser()
+    {
+        return view('auth.register');
+    }
 
 }

@@ -32,7 +32,12 @@ class HomeController extends Controller
     }
     public function getStudent()
     {
-        $user=User::getmodel();
+        try{
+        $user = User::getmodel();
+        }
+        catch(\Exception $exception){
+            echo "Sorry, an error occured "; 
+        }
         return view('admin.student',compact('user'));
     }
     public function landing()
@@ -45,7 +50,13 @@ class HomeController extends Controller
     }
     public function edituser($id)
     {
-       $user=User::editmodel($id);
+        try{
+        $user = User::editmodel($id);
+        }
+        catch(\Exception $exception){
+            echo "Sorry, an error occured "; 
+        }
+        
         return view('admin.edituser',compact('user'));
     }
     public function postedit($id, Request $request)
@@ -60,25 +71,30 @@ class HomeController extends Controller
 
             'admin' => 'boolean',
             
-            
-
         ]);
-
+        try{
         $user = User::posteditmodel($id);
 
         $user->name = $request->input('name');
 
         $user->email = $request->input('email');
 
-
         $user->role = $request->input('role');
+       
+        $user->admin = $request->input('admin');
 
         $user->save();
+        }
+        catch(\Exception $exception){
+            echo "Sorry, an error occured "; 
+        }
+
         return redirect('/student');
     }
     public function delete($id)
     {
-        $user=User::editmodel($id);
+        try{
+        $user = User::editmodel($id);
         if($user->role == "Student"){
             $student=Student::deletemodel($user->email);
         }
@@ -86,53 +102,85 @@ class HomeController extends Controller
             $teacher=Teacher::deletemodel($user->email);
         }
         
-        $user=User::deletemodel($id);
-        $course=Course::deletemodel($id);
+        $user = User::deletemodel($id);
+        $course = Course::deletemodel($id);
+        }
+        catch(\Exception $exception){
+            echo "Sorry, an error occured "; 
+        }
         return redirect()->back();
     }
     public function count()
     {
+        try{
         $array = [];
 
         $array[0] = User::countstudent();
 
         $array[1] = User::countTeacher();
+        }
+        catch(\Exception $exception){
+            echo "Sorry, an error occured "; 
+        }
         return view('admin.home',compact('array'));
     }
     public function display()
     {
-        $user=User::get();
+        try{
+        $user = User::get();
+        }
+        catch(\Exception $exception){
+            echo "Sorry, an error occured "; 
+        }
         return view('admin.display',compact('user'));
     }
     public function apif(Request $request)
     {
-        $page=1;
+        try{
+        $page = 1;
         if($request->page){
             $page=$request->page;
         }
-        $user=User::getstudentpaginated($page);
-
+        $user = User::getstudentpaginated($page);
+    }
+    catch(\Exception $exception){
+        echo "Sorry, an error occured "; 
+    }
         return response()->json($user,200);
     }
     public function student()
     {
-        $user=User::getstudent();
-        $tuser=User::getteacher();
-        $course=Course::getallcourse();
-        
+        try{
+        $user = User::getstudent();
+        $tuser = User::getteacher();
+        $course = Course::getallcourse();
+        }
+        catch(\Exception $exception){
+            echo "Sorry, an error occured "; 
+        }
         return view('admin.display',['user'=>$user,'course'=>$course,'tuser'=>$tuser]);
     }
     
     public function teacher()
     {
-        $student=Student::getmodel();
-        $teacher=Teacher::getmodel();
+        try{
+        $student = Student::getmodel();
+        $teacher = Teacher::getmodel();
+        }
+        catch(\Exception $exception){
+            echo "Sorry, an error occured "; 
+        }
         return view('admin.tdisplay',['student'=>$student,'teacher'=>$teacher]);
     }
     public function teacherdisplay()
     {
-        $user=User::getteacher();
-        $course=Course::getallcourse();
+        try{
+        $user = User::getteacher();
+        $course = Course::getallcourse();
+        }
+        catch(\Exception $exception){
+            echo "Sorry, an error occured "; 
+        }
         return view('admin.teacher',['user'=>$user,'course'=>$course]);
     }
     public function addUser()

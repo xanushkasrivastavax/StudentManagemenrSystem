@@ -23,20 +23,32 @@ class CourseController extends Controller
 
     public function getCourse()
     {
-        $course=Course::getdistinct();
+        try{
+        $course = Course::getdistinct();
+        }
+        catch(\Exception $exception){
+            echo "Sorry, an error occured "; 
+        }
         return view('admin.vCourse', compact('course'));
     }
     public function delete($id)
     {
-        
-        $course=Course::findanddelete($id);
-        
+        try{
+        $course = Course::findanddelete($id);
+        }
+        catch(\Exception $exception){
+            echo "Sorry, an error occured "; 
+        }
         
     }
     public function editcourse($id)
     {
-
-        $course=Course::editmodel($id);
+        try{
+        $course = Course::editmodel($id);
+        }
+        catch(\Exception $exception){
+            echo "Sorry, an error occured "; 
+        }
         return view('admin.editCourse',compact('course'));
 
     }
@@ -49,22 +61,31 @@ class CourseController extends Controller
             'duration' => 'required|int|max:11',
 
         ]);
-
+        try{
         $course=Course::postedit($id);
 
         $course->cname = $request->input('cname');
         $course->duration = $request->input('duration');
         
         $course->save();
+        }
+        catch(\Exception $exception){
+            echo "Sorry, an error occured "; 
+        }
         return Redirect('/cinfo');
     }
     public function getStudent($id,Request $request)
     {
-        $course=Course::getStudent($id);
+        $course = Course::getStudent($id);
     }
     public function uniquecourse()
     {
-        $course=Course::get()->distinct();
+        try{
+        $course = Course::get()->distinct();
+        }
+        catch(\Exception $exception){
+            echo "Sorry, an error occured "; 
+        }
         return view('admin.vCourse',compact('course'));
     }
 

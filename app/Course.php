@@ -15,7 +15,7 @@ class Course extends Model
   }
   public static function editmodel($id)
   {
-    $valid =Course::find($id);
+    $valid = Course::find($id);
     if(empty($valid))
     return "NULL";
     else
@@ -27,7 +27,7 @@ class Course extends Model
   }
   public static function getStudent($id)
   {
-    $check=Course::find($id);
+    $check = Course::find($id);
     if(empty($check)){
       return "NULL";
     }
@@ -37,7 +37,7 @@ class Course extends Model
   }
   public static function postedit($id)
   {
-    $real= Course::find($id);
+    $real = Course::find($id);
     if(empty($real))
     return "NULL";
     else

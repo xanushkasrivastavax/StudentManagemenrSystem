@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Course;
 use App\User;
+
 use App\Student;
 use App\Teacher;
 use Illuminate\Http\Request;
@@ -26,21 +27,17 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('admin.home');
-    }
-    public function getStudent()
+    public function viewUser()
     {
         try{
-        $user = User::getmodel();
+        $user = User::getUser();
         }
         catch(\Exception $exception){
-            echo "Sorry, an error occured "; 
+            return back()->withError($exception->getMessage()); 
         }
         return view('admin.student',compact('user'));
     }
-    public function landing()
+    public function dashboard()
     {
         return view('home');
     }
@@ -48,27 +45,28 @@ class HomeController extends Controller
     {
         return view('admin.course');
     }
-    public function edituser($id)
+    public function welcomepage()
+    {
+        return view('welcome');
+    }
+    public function edit($id)
     {
         try{
         $user = User::editmodel($id);
         }
         catch(\Exception $exception){
-            echo "Sorry, an error occured "; 
+            return back()->withError($exception->getMessage());
         }
         
         return view('admin.edituser',compact('user'));
     }
-    public function postedit($id, Request $request)
+    public function update($id, Request $request)
     {
         $this->validate($request, [
 
             'name' => 'required|string|max:255',
-
             'role' => 'required|string|max:50',
-
             'email' => 'required|string|email|max:255',
-
             'admin' => 'boolean',
             
         ]);
@@ -86,10 +84,10 @@ class HomeController extends Controller
         $user->save();
         }
         catch(\Exception $exception){
-            echo "Sorry, an error occured "; 
+            return back()->withError($exception->getMessage()); 
         }
 
-        return redirect('/student');
+        return redirect('/viewUsers');
     }
     public function delete($id)
     {
@@ -106,11 +104,11 @@ class HomeController extends Controller
         $course = Course::deletemodel($id);
         }
         catch(\Exception $exception){
-            echo "Sorry, an error occured "; 
+            return back()->withError($exception->getMessage()); 
         }
         return redirect()->back();
     }
-    public function count()
+    public function countUser()
     {
         try{
         $array = [];
@@ -118,70 +116,24 @@ class HomeController extends Controller
         $array[0] = User::countstudent();
 
         $array[1] = User::countTeacher();
-        }
-        catch(\Exception $exception){
-            echo "Sorry, an error occured "; 
+        } catch(\Exception $exception){
+            return back()->withError($exception->getMessage()); 
         }
         return view('admin.home',compact('array'));
     }
-    public function display()
-    {
-        try{
-        $user = User::get();
-        }
-        catch(\Exception $exception){
-            echo "Sorry, an error occured "; 
-        }
-        return view('admin.display',compact('user'));
-    }
     public function apif(Request $request)
     {
-        try{
         $page = 1;
         if($request->page){
             $page=$request->page;
         }
+        try{
         $user = User::getstudentpaginated($page);
     }
     catch(\Exception $exception){
-        echo "Sorry, an error occured "; 
+        return back()->withError($exception->getMessage());
     }
         return response()->json($user,200);
-    }
-    public function student()
-    {
-        try{
-        $user = User::getstudent();
-        $tuser = User::getteacher();
-        $course = Course::getallcourse();
-        }
-        catch(\Exception $exception){
-            echo "Sorry, an error occured "; 
-        }
-        return view('admin.display',['user'=>$user,'course'=>$course,'tuser'=>$tuser]);
-    }
-    
-    public function teacher()
-    {
-        try{
-        $student = Student::getmodel();
-        $teacher = Teacher::getmodel();
-        }
-        catch(\Exception $exception){
-            echo "Sorry, an error occured "; 
-        }
-        return view('admin.tdisplay',['student'=>$student,'teacher'=>$teacher]);
-    }
-    public function teacherdisplay()
-    {
-        try{
-        $user = User::getteacher();
-        $course = Course::getallcourse();
-        }
-        catch(\Exception $exception){
-            echo "Sorry, an error occured "; 
-        }
-        return view('admin.teacher',['user'=>$user,'course'=>$course]);
     }
     public function addUser()
     {

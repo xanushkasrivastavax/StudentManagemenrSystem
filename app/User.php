@@ -38,7 +38,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(Course::class);
     }
-    public static function getmodel()
+    public static function getUser()
     {
         return User::get();
     }

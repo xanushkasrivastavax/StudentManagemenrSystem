@@ -14,10 +14,9 @@
 // use Illuminate\Routing\Route;
 
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\HomeController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@welcomepage');
 
 Auth::routes();
 Route::middleware('isadmin')->group(function () {
@@ -25,22 +24,16 @@ Route::middleware('isadmin')->group(function () {
 });
 
 Route::middleware('checkauth')->group(function () {
-    Route::get('/cinfo', 'CourseController@getCourse');
-    Route::get('/edituser/{id}', 'HomeController@edituser');
-    Route::get('/delete/{id}', 'HomeController@delete');
-    Route::get('/student', 'HomeController@getStudent');
-    Route::get('/landing', 'HomeController@landing');
-    Route::any('/course', 'CourseController@handle');
-    Route::patch('/edituser/{id}', 'HomeController@postedit');
-    Route::get('/editcourse/{id}', 'CourseController@editcourse');
-    Route::patch('/editcourse/{id}', 'CourseController@postedit');
-    Route::get('/display', 'HomeController@display');
-    Route::get('/display', 'HomeController@student');
-    Route::get('/tdisplay', 'HomeController@teacher');
-    Route::get('/teacher', 'HomeController@teacherdisplay');
+    Route::get('/viewCourse', 'CourseController@view');
+    Route::get('/editUser/{id}', 'HomeController@edit');
+    Route::delete('/deleteUser/{id}', 'HomeController@delete');
+    Route::get('/viewUsers', 'HomeController@viewUser');
+    Route::get('/dashboard', 'HomeController@dashboard');
+    Route::put('/updateUsers/{id}', 'HomeController@update');
+    Route::get('/viewStudents', 'StudentController@view');
+    Route::get('/viewRelationship', 'StudentController@viewRelations');
+    Route::get('/viewTeacher', 'TeacherController@view');
 });
-
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home', 'HomeController@count');
+Route::get('/home', 'HomeController@countUser');
 
 

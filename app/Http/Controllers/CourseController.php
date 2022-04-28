@@ -8,20 +8,7 @@ use Illuminate\Support\Facades\Redirect;
 
 class CourseController extends Controller
 {
-    public function handle(Request $request){
-        if($request->isMethod("POST"))
-        {
-           $course = new Course;
-           $course->cname = $request->name;
-           $course->duration = $request->duration;
-           $course->save();
-        }
-        else{
-          return view('admin.course');
-        }
-    }
-
-    public function getCourse()
+    public function view()
     {
         try{
         $course = Course::getdistinct();

@@ -21,7 +21,6 @@ class isadmin
         if(!Auth::user()->admin)
         {
             return redirect('/home')->with("message","you are not admin");
-
         }
         return $next($request);
 

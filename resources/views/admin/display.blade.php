@@ -58,7 +58,7 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ url('/student') }}" data-toggle="collapse"
+                <a class="nav-link collapsed" href="{{ url('/viewUsers') }}" data-toggle="collapse"
                     data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>User Information</span>
@@ -67,7 +67,7 @@
 
                 <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ url('/display') }}" data-toggle="collapse"
+                <a class="nav-link collapsed" href="{{ url('/viewStudents') }}" data-toggle="collapse"
                     data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Student Information</span>
@@ -77,7 +77,7 @@
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ url('/tdisplay') }}" data-toggle="collapse"
+                <a class="nav-link collapsed" href="{{ url('/viewRelationship') }}" data-toggle="collapse"
                     data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Teacher and Student Relationship Information</span>
@@ -86,7 +86,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ url('/teacher') }}" data-toggle="collapse"
+                <a class="nav-link collapsed" href="{{ url('/viewTeacher') }}" data-toggle="collapse"
                     data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Teacher Information</span>
@@ -191,9 +191,9 @@
 
                         </li>
                         <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="{{ url('/landing') }}" id="messagesDropdown"
+                            <a class="nav-link dropdown-toggle" href="{{ url('/dashboard') }}" id="messagesDropdown"
                                 role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Landing Page
+                                Dashboard
 
                             </a>
                             <!-- Nav Item - Messages -->

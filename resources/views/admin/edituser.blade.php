@@ -8,9 +8,9 @@
                     <div class="panel-heading">Edit User</div>
 
                     <div class="panel-body">
-                        <form class="form-horizontal" method="POST" action="/edituser/{{ $user->id }}">
+                        <form class="form-horizontal" method="POST" action="/updateUsers/{{ $user->id }}">
                             {{ csrf_field() }}
-                            {{ method_field('PATCH') }}
+                            {{ method_field('PUT') }}
 
                             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                                 <label for="name" class="col-md-4 control-label">Name</label>

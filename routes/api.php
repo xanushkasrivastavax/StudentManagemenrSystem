@@ -1,10 +1,6 @@
 <?php
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\HomeController;
-
-
-
 /*
 |--------------------------------------------------------------------------
 | API Routes

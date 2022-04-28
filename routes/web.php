@@ -19,11 +19,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Auth::routes();
 Route::middleware('isadmin')->group(function () {
     Route::get('/user','HomeController@addUser');
 });
+
 Route::middleware('checkauth')->group(function () {
     Route::get('/cinfo', 'CourseController@getCourse');
     Route::get('/edituser/{id}', 'HomeController@edituser');
@@ -39,15 +39,8 @@ Route::middleware('checkauth')->group(function () {
     Route::get('/tdisplay', 'HomeController@teacher');
     Route::get('/teacher', 'HomeController@teacherdisplay');
 });
+
 Route::get('/home', 'HomeController@index')->name('home');
-
-
-
-// Route::get('/delete/{id}', 'CourseController@delete');
-// Route::get('api/filterapi', 'HomeController@apif');
 Route::get('/home', 'HomeController@count');
 
-// Route::get('/clear-cache', function() {
-//     Artisan::call('cache:clear');
-//     return "Cache is cleared";
-// });
+

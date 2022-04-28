@@ -44,17 +44,27 @@ class User extends Authenticatable
     }
     public static function editmodel($id)
     {
-        return User::find($id);
+        $real= User::find($id);
+        if(empty($real))
+         return "NULL";
+        else
+         return $real;
     }
     public static function posteditmodel($id)
     {
-        return User::find($id);
+        $real = User::find($id);
+        if(empty($real))
+          return "NULL";
+        else
+          return $real;
     }
     public static function deletemodel($id)
     {  
-       
-
-        return User::find($id)->delete();
+        $real = User::find($id);
+        if(empty($real))
+          return "NULL";
+        else
+          return $real->delete();
     }
     public static function getstudent()
     {

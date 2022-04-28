@@ -24,14 +24,13 @@ class CourseController extends Controller
     public function getCourse()
     {
         $course=Course::getdistinct();
-        // select('cname')->distinct()->
         return view('admin.vCourse', compact('course'));
     }
     public function delete($id)
     {
         
         $course=Course::findanddelete($id);
-        // return redirect()->back();
+        
         
     }
     public function editcourse($id)
@@ -58,12 +57,6 @@ class CourseController extends Controller
         
         $course->save();
         return Redirect('/cinfo');
-    }
-    public function count()
-    {
-        // $array=[];
-        // $array=Course::all(*)->count;
-        // return view('admin.home', compact('array'));
     }
     public function getStudent($id,Request $request)
     {

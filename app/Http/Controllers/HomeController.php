@@ -111,7 +111,6 @@ class HomeController extends Controller
             $page=$request->page;
         }
         $user=User::getstudentpaginated($page);
-        // return view('admin.filterapi',compact('user'));
 
         return response()->json($user,200);
     }

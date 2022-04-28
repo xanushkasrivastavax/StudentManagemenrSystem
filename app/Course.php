@@ -53,10 +53,10 @@ class Course extends Model
   }
   public static function deletemodel($id)
   {  
-      return Course::find($id)->delete();
+    $real = Course::find($id);
+    if(empty($real))
+      return "NULL";
+    else
+      return $real->delete(); 
   }
-  // public static function countmodel()
-  // {
-  //   return Coure::all()->distinct
-  // }
 }

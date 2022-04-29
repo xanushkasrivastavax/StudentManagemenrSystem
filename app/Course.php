@@ -24,12 +24,8 @@ class Course extends Model
   }
   public static function getStudent($id)
   {
-    $check = Course::find($id);
-    if (empty($check)) {
-      return "NULL";
-    } else {
-      return $check;
-    }
+    $check = Course::findOrFail($id);
+    return $check;
   }
   public static function updateCourse($id)
   {

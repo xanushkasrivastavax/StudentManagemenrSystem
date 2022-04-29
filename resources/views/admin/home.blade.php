@@ -44,7 +44,7 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
-          
+
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="{{ url('/home') }}">
@@ -54,7 +54,7 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider">
-            
+
 
             <!-- Heading -->
             <div class="sidebar-heading">
@@ -68,7 +68,7 @@
                     <i class="fas fa-fw fa-cog"></i>
                     <span>User Information</span>
                 </a>
-               
+
 
                 <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
@@ -108,7 +108,7 @@
 
             </li>
 
-           
+
 
 
 
@@ -141,7 +141,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                   
+
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -254,22 +254,13 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    @if(Session::has('message'))
-
-                   
-
-                            <h4 style="color: red">{{Session::get('message')}}</h4>
-
-                   
-
-                        @endif
-
+                    @if (Session::has('message'))
+                        <h4 style="color: red">{{ Session::get('message') }}</h4>
+                    @endif
                     <!-- Page Heading -->
 
                     <div class="d-sm-flex align-items-center justify-content-between mb-">
                         <h1 class="h3 mb-0 text-gray-800">{{ Auth::user()->name }} 's Dashboard</h1>
-
-
                     </div>
 
 
@@ -306,7 +297,8 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Teachers</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $array[1] }}
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                {{ $array[1] }}
                                             </div>
                                         </div>
                                         <div class="col-auto">
@@ -356,7 +348,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                <a href="{{ url('api/filterapi') }}"> Filter API
+                                                <a href="{{ url('api/viewUserApi') }}"> Filter API
                                             </div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
                                         </div>
@@ -372,7 +364,7 @@
 
 
                     <hr class="mt-2 mb-3" />
-                    
+
 
                     <!-- Logout Modal-->
                     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"

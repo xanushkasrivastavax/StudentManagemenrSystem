@@ -63,7 +63,7 @@
                     <i class="fas fa-fw fa-cog"></i>
                     <span>User Information</span>
                 </a>
-            
+
 
                 <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
@@ -131,7 +131,7 @@
                     </button>
 
                     <!-- Topbar Search -->
-                   
+
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -306,8 +306,7 @@
                                 <div class="modal-body">Select "Logout" below if you are ready to end your current
                                     session.</div>
                                 <div class="modal-footer">
-                                    <button class="btn btn-secondary" type="button"
-                                        data-dismiss="modal">Cancel</button>
+                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                                     <a class="btn btn-primary" href="login.html">Logout</a>
                                 </div>
                             </div>

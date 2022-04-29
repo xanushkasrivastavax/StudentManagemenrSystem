@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email','role','admin', 'password',
+        'name', 'email', 'role', 'admin', 'password',
     ];
 
     /**
@@ -28,7 +28,7 @@ class User extends Authenticatable
     ];
     public function student()
     {
-       return $this->hasOne(student::class);
+        return $this->hasOne(student::class);
     }
     public function teacher()
     {
@@ -42,48 +42,39 @@ class User extends Authenticatable
     {
         return User::get();
     }
-    public static function editmodel($id)
+    public static function findUser($id)
     {
-        $real= User::find($id);
-        if(empty($real))
-         return "NULL";
-        else
-         return $real;
+        $real = User::findOrFail($id);
+        return $real;
     }
-    public static function posteditmodel($id)
+    public static function updateUser($id)
     {
-        $real = User::find($id);
-        if(empty($real))
-          return "NULL";
-        else
-          return $real;
+        $real = User::findOrFail($id);
+        return $real;
     }
-    public static function deletemodel($id)
-    {  
-        $real = User::find($id);
-        if(empty($real))
-          return "NULL";
-        else
-          return $real->delete();
+    public static function deleteUser($id)
+    {
+        $real = User::findOrFail($id);
+        return $real->delete();
     }
-    public static function getstudent()
+    public static function viewStudentInfo()
     {
         return User::where("role", "=", "Student")->get();
     }
-    public static function getstudentpaginated($page)
+    public static function viewStudentPaginated($page)
     {
         return User::where("role", "=", "Student")->offset(($page - 1) * 10)->limit(10)->get();
     }
-    public static function getteacher()
+    public static function viewTeacherInfo()
     {
-        return User::where("role","=","Teacher")->get();
+        return User::where("role", "=", "Teacher")->get();
     }
-    public static function countstudent()
+    public static function countStudent()
     {
         return User::where("role", "=", "Student")->count();
     }
     public static function countTeacher()
     {
-       return User::where("role", "=", "Teacher")->count();
+        return User::where("role", "=", "Teacher")->count();
     }
 }

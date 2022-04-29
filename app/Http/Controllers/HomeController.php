@@ -27,15 +27,27 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function index()
+    {
+        try {
+            $array = [];
+
+            $array[0] = User::countStudent();
+
+            $array[1] = User::countTeacher();
+        } catch (\Exception $exception) {
+            return back()->withError($exception->getMessage());
+        }
+        return view('admin.home', compact('array'));
+    }
     public function viewUser()
     {
-        try{
-        $user = User::getUser();
+        try {
+            $user = User::getUser();
+        } catch (\Exception $exception) {
+            return back()->withError($exception->getMessage());
         }
-        catch(\Exception $exception){
-            return back()->withError($exception->getMessage()); 
-        }
-        return view('admin.student',compact('user'));
+        return view('admin.student', compact('user'));
     }
     public function dashboard()
     {
@@ -51,14 +63,13 @@ class HomeController extends Controller
     }
     public function edit($id)
     {
-        try{
-        $user = User::editmodel($id);
-        }
-        catch(\Exception $exception){
+        try {
+            $user = User::findUser($id);
+        } catch (\Exception $exception) {
             return back()->withError($exception->getMessage());
         }
-        
-        return view('admin.edituser',compact('user'));
+
+        return view('admin.edituser', compact('user'));
     }
     public function update($id, Request $request)
     {
@@ -68,76 +79,63 @@ class HomeController extends Controller
             'role' => 'required|string|max:50',
             'email' => 'required|string|email|max:255',
             'admin' => 'boolean',
-            
+
         ]);
-        try{
-        $user = User::posteditmodel($id);
+        try {
+            $user = User::updateUser($id);
 
-        $user->name = $request->input('name');
+            $user->name = $request->input('name');
 
-        $user->email = $request->input('email');
+            $user->email = $request->input('email');
 
-        $user->role = $request->input('role');
-       
-        $user->admin = $request->input('admin');
+            $user->role = $request->input('role');
 
-        $user->save();
-        }
-        catch(\Exception $exception){
-            return back()->withError($exception->getMessage()); 
+            $user->admin = $request->input('admin');
+
+            $user->save();
+        } catch (\Exception $exception) {
+            return back()->withError($exception->getMessage());
         }
 
         return redirect('/viewUsers');
     }
     public function delete($id)
     {
-        try{
-        $user = User::editmodel($id);
-        if($user->role == "Student"){
-            $student=Student::deletemodel($user->email);
-        }
-        else{
-            $teacher=Teacher::deletemodel($user->email);
-        }
-        
-        $user = User::deletemodel($id);
-        $course = Course::deletemodel($id);
-        }
-        catch(\Exception $exception){
-            return back()->withError($exception->getMessage()); 
+        try {
+            $user = User::findUser($id);
+            if ($user->role == "Student") {
+                $student = Student::deleteUser($user->email);
+            } else {
+                $teacher = Teacher::deleteTeacher($user->email);
+            }
+
+            $user = User::deleteUser($id);
+            $course = Course::deleteCourse($id);
+        } catch (\Exception $exception) {
+            return back()->withError($exception->getMessage());
         }
         return redirect()->back();
     }
     public function countUser()
     {
-        try{
-        $array = [];
 
-        $array[0] = User::countstudent();
-
-        $array[1] = User::countTeacher();
-        } catch(\Exception $exception){
-            return back()->withError($exception->getMessage()); 
-        }
-        return view('admin.home',compact('array'));
+        return view('admin.home', compact('array'));
     }
-    public function apif(Request $request)
+    public function viewUserApiFunction(Request $request)
     {
         $page = 1;
-        if($request->page){
-            $page=$request->page;
+        if ($request->page) {
+            $page = $request->page;
         }
-        try{
-        $user = User::getstudentpaginated($page);
-    }
-    catch(\Exception $exception){
-        return back()->withError($exception->getMessage());
-    }
-        return response()->json($user,200);
+        try {
+            $user = User::viewStudentPaginated($page);
+        } catch (\Exception $exception) {
+            return back()->withError($exception->getMessage());
+        }
+        return response()->json($user, 200);
     }
     public function addUser()
     {
         return view('auth.register');
     }
-
 }

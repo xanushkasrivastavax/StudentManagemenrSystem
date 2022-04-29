@@ -63,7 +63,7 @@
                     <i class="fas fa-fw fa-cog"></i>
                     <span>User Information</span>
                 </a>
-               
+
 
                 <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
@@ -103,7 +103,7 @@
 
             </li>
 
-            
+
 
 
 
@@ -137,7 +137,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                   
+
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -283,11 +283,13 @@
                                         <td>{{ $item->role }}</td>
                                         @if (Auth::user()->admin == '1')
                                             <td><a href="/editUser/{{ $item->id }}">Edit</td>
-                                            <td><form action="/deleteUser/{{ $item->id }}" method="POST">
-                                            {{ csrf_field() }}
-										{{ method_field('DELETE') }}    
-                                        <button type="submit" class="btn btn-danger">Delete</button>
-                                    </form></td>
+                                            <td>
+                                                <form action="/deleteUser/{{ $item->id }}" method="POST">
+                                                    {{ csrf_field() }}
+                                                    {{ method_field('DELETE') }}
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                </form>
+                                            </td>
                                         @endif
                                     </tr>
                             </tbody>
@@ -312,8 +314,7 @@
                                 <div class="modal-body">Select "Logout" below if you are ready to end your current
                                     session.</div>
                                 <div class="modal-footer">
-                                    <button class="btn btn-secondary" type="button"
-                                        data-dismiss="modal">Cancel</button>
+                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                                     <a class="btn btn-primary" href="login.html">Logout</a>
                                 </div>
                             </div>

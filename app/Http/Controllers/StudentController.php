@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Course;
 use App\User;
 use App\Student;
@@ -12,26 +13,23 @@ class StudentController extends Controller
 {
   public function view()
   {
-      try{
-      $student = User::getstudent();
-      $teacher = User::getteacher();
-      $course = Course::getallcourse();
-      }
-      catch(\Exception $exception){
-        return back()->withError($exception->getMessage()); 
-      }
-      return view('admin.display',['user'=>$student,'course'=>$course,'tuser'=>$teacher]);
+    try {
+      $student = User::viewStudentInfo();
+      $teacher = User::viewTeacherInfo();
+      $course = Course::viewCourse();
+    } catch (\Exception $exception) {
+      return back()->withError($exception->getMessage());
+    }
+    return view('admin.display', ['user' => $student, 'course' => $course, 'tuser' => $teacher]);
   }
   public function viewRelations()
   {
-      try{
-      $student = Student::getmodel();
-      $teacher = Teacher::getmodel();
-      }
-      catch(\Exception $exception){
-        return back()->withError($exception->getMessage());
-      }
-      return view('admin.tdisplay',['student'=>$student,'teacher'=>$teacher]);
+    try {
+      $student = Student::viewStudent();
+      $teacher = Teacher::viewTeacher();
+    } catch (\Exception $exception) {
+      return back()->withError($exception->getMessage());
+    }
+    return view('admin.tdisplay', ['student' => $student, 'teacher' => $teacher]);
   }
-    
 }

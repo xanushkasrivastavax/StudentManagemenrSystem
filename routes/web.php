@@ -25,15 +25,18 @@ Route::middleware('isadmin')->group(function () {
 
 Route::middleware('checkauth')->group(function () {
     Route::get('/viewCourse', 'CourseController@view');
+
     Route::get('/editUser/{id}', 'HomeController@edit');
     Route::delete('/deleteUser/{id}', 'HomeController@delete');
     Route::get('/viewUsers', 'HomeController@viewUser');
-    Route::get('/dashboard', 'HomeController@dashboard');
     Route::put('/updateUsers/{id}', 'HomeController@update');
+    
+    Route::get('/dashboard', 'HomeController@dashboard');
+    
     Route::get('/viewStudents', 'StudentController@view');
     Route::get('/viewRelationship', 'StudentController@viewRelations');
     Route::get('/viewTeacher', 'TeacherController@view');
 });
-Route::get('/home', 'HomeController@countUser');
+Route::get('/home', 'HomeController@index')->name('home');
 
 

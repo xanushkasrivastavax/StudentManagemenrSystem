@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Student extends Model
 {
     protected $fillable = [
-        'name', 'email','cname','duration',
+        'name', 'email', 'cname', 'duration',
     ];
-    public static function getmodel()
+    public static function viewStudent()
     {
         return Student::all();
     }
-    public static function deletemodel($email)
+    public static function deleteUser($email)
     {
-    return Student::where('email', $email)->delete();
+        return Student::where('email', $email)->delete();
     }
 }

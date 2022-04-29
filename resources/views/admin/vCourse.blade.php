@@ -63,7 +63,7 @@
                     <i class="fas fa-fw fa-cog"></i>
                     <span>User Information</span>
                 </a>
-             
+
 
                 <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
@@ -133,7 +133,7 @@
                 </div>
             </li>
             <li class="nav-item">
-              
+
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
@@ -181,7 +181,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    
+
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">

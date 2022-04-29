@@ -17,9 +17,9 @@
 </head>
 
 <body>
-    
+
     <form method="POST" action="{{ url('/editcourse') }}>
-  <div class=" form-group">
+  <div class="  form-group">
         <label for="exampleInputEmail1">Email address</label>
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
             placeholder="Enter email">

@@ -8,9 +8,9 @@ use PhpParser\Node\Expr\FuncCall;
 class Teacher extends Model
 {
     protected $fillable = [
-        'name', 'email','cname','duration',
+        'name', 'email', 'cname', 'duration',
     ];
-    public static function getmodel()
+    public static function viewTeacher()
     {
         return Teacher::all();
     }
@@ -18,7 +18,7 @@ class Teacher extends Model
     {
         return Teacher::all()->count();
     }
-    public static function deletemodel($email)
+    public static function deleteTeacher($email)
     {
         return Teacher::where('email', $email)->delete();
     }

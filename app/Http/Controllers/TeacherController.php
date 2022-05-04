@@ -17,6 +17,6 @@ class TeacherController extends Controller
         } catch (\Exception $exception) {
             return back()->withError($exception->getMessage());
         }
-        return view('admin.teacher', ['user' => $user, 'course' => $course]);
+        return view('admin.allTeachers', ['user' => $user, 'course' => $course]);
     }
 }

@@ -42,7 +42,7 @@ class HomeController extends Controller
         } catch (\Exception $exception) {
             return back()->withError($exception->getMessage());
         }
-        return view('admin.student', compact('user'));
+        return view('admin.allUsers', compact('user'));
     }
     public function dashboard()
     {
@@ -64,7 +64,7 @@ class HomeController extends Controller
             return back()->withError($exception->getMessage());
         }
 
-        return view('admin.edituser', compact('user'));
+        return view('admin.editUser', compact('user'));
     }
     public function update($id, Request $request)
     {

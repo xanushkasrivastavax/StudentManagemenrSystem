@@ -20,7 +20,7 @@ class StudentController extends Controller
     } catch (\Exception $exception) {
       return back()->withError($exception->getMessage());
     }
-    return view('admin.display', ['user' => $student, 'course' => $course, 'tuser' => $teacher]);
+    return view('admin.allStudents', ['user' => $student, 'course' => $course, 'tuser' => $teacher]);
   }
   public function viewRelations()
   {
@@ -30,6 +30,6 @@ class StudentController extends Controller
     } catch (\Exception $exception) {
       return back()->withError($exception->getMessage());
     }
-    return view('admin.tdisplay', ['student' => $student, 'teacher' => $teacher]);
+    return view('admin.teacherStudentRelation', ['student' => $student, 'teacher' => $teacher]);
   }
 }

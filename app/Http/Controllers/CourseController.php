@@ -15,7 +15,7 @@ class CourseController extends Controller
         } catch (\Exception $exception) {
             return back()->withError($exception->getMessage());
         }
-        return view('admin.vCourse', compact('course'));
+        return view('admin.viewCourse', compact('course'));
     }
     public function delete($id)
     {
